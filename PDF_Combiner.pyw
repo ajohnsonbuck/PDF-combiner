@@ -28,7 +28,7 @@ def mainWindow():
               [sg.Listbox(values=[],size=(50,10),key='-LISTBOX-',expand_x=True)],
               [sg.Button('Save merged file...',key='-SAVE-')]
               ]
-    window = sg.Window(title='JB PDF Combiner', layout=layout, resizable=True, finalize=True)
+    window = sg.Window(title='AJB PDF Combiner', layout=layout, resizable=True, finalize=True)
     return window
 
 def openFile(title,default_path,file_types,multiple_files):
@@ -106,13 +106,13 @@ try:    # GUI Window Event Callback Loop
                 mainWindow['-LISTBOX-'].update(values=filesList)         
             except:
                 print('Error: no file selected to remove.')
-        elif event=='-SAVE-':
+        elif event=='-SAVE-': # Save merged PDF in user-defined file
             outFile = saveAs(title='Choose where to save your merged PDF',
                              default_path=path,
                              default_file_name='Merged.pdf',
                              file_types=(("Adobe PDF","*.pdf"),))
             writeMergedPDF(fullFilesList,outFile)
-        elif event=='-MOVEUP-':
+        elif event=='-MOVEUP-': # Move selected item up in list
             try:
                 fileToMove = mainWindow['-LISTBOX-'].get()[0]
                 fileToMove = [i for i in fullFilesList if fileToMove in i]
@@ -125,7 +125,7 @@ try:    # GUI Window Event Callback Loop
                     mainWindow['-LISTBOX-'].update(values=filesList)   
             except:
                 print('Error: no file selected to move.')
-        elif event=='-MOVEDOWN-':
+        elif event=='-MOVEDOWN-': # Move selected item down in list
             try:
                 fileToMove = mainWindow['-LISTBOX-'].get()[0]
                 fileToMove = [i for i in fullFilesList if fileToMove in i]
