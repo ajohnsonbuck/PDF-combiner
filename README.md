@@ -2,8 +2,10 @@
 Simple, lightweight GUI app for merging PDFs into a single file.
 
 # Description
+Provided as Python source code (.pyw) and Windows-executable (.exe).
+
 Once open, the program provides options to Add PDF files, Remove files from the existing list, 
-move files up or down in the list, and create the final merged file at a user-specified location.
+Move files up or down in the list, and Create the final merged file at a user-specified location.
 
 ## Getting Started
 
